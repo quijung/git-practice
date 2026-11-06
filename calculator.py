@@ -1,4 +1,6 @@
 def div(a,b):
+    if b==0:
+        pass
     return a/b
 
 print(div(4,2))
