@@ -1,4 +1,4 @@
-name: Shell Command #asdf
+name: Shell Command
 on: workflow_dispatch
 jobs:
   runs: #job ID
