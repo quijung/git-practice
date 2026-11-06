@@ -4,4 +4,4 @@ jobs:
   run:
     runs-on: ubuntu_latest
     steps:
-      -run: date
+      - run: date
