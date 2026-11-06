@@ -1,7 +1,7 @@
 name: Shell Command
 on: workflow_dispatch
 jobs:
-  runs:
+  runs: #job ID
     runs-on: ubuntu-latest
     steps:
       - name: Check environment
@@ -10,7 +10,6 @@ jobs:
           pwd
           echo "File list:"
           ls -la
-    steps:
       - name: Check file
         run:  |
           if [ -f "README.md" ]; then
