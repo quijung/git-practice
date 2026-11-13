@@ -1,0 +1,22 @@
+name: Issue Comment Example
+on:
+  issues:
+    types: [opened]
+primssions:
+  issues: write
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+    steps:
+      - name: Comment with Github CLI
+        run: |
+          gh api \
+            --method POST \
+            "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/comments" \
+            -f body="Hello from GitHub CLI!" \
+            --jq '.html_url'
