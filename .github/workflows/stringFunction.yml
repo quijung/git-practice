@@ -13,5 +13,5 @@ jobs:
           TEST_ENDSWITH_1: ${{ endsWith('Hello GitHub', 'GitHub') }}
           TEST_ENDSWITH_2: ${{ endsWith('Hello GitHub', 'Hello') }}
           TEST_CASE: ${{ contains('Hello GitHub', 'github') }}
-
+          
         run: printenv | grep '^TEST_' | sort
