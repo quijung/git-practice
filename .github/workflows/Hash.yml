@@ -18,5 +18,5 @@ jobs:
       
       - name: GitHub File Hash
         env:
-          RESULT_YAML: "${{ hashFiles('.github/workflows/*.yaml') }}"
+          RESULT_YAML: "${{ hashFiles('.github/workflows/*.yml') }}"
         run: printenv | grep '^RESULT_'
