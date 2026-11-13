@@ -1,0 +1,31 @@
+name: Status Functions Example
+on: workflow_dispatch
+jobs:
+  status-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Normal Step
+        run: echo "Normal execution"
+
+      - name: Success Test
+        if: ${{ success() }}
+        run: echo "Previous steps succeeded"
+
+      - name: Fail Step
+        run: exit 1
+
+      - name: Failure Test
+        if: ${{ failure() }}
+        run: echo "A previous step failed"
+
+      - name: Success After Failure
+        if: ${{ success() }}
+        run: echo "All steps succeeded"
+
+      - name: Always Test
+        if: ${{ always() }}
+        run: echo "Always executed"
+
+      - name: Cancelled Test
+        if: ${{ cancelled() }}
+        run: echo "Workflow was cancelled"
