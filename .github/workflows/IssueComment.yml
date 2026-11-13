@@ -2,7 +2,7 @@ name: Issue Comment Example
 on:
   issues:
     types: [opened]
-primssions:
+permissions:
   issues: write
 jobs:
   comment:
