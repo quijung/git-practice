@@ -1,0 +1,29 @@
+name: Job Status Example
+on: workflow_dispatch
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail
+        run: exit 1
+
+  job2:
+    needs: job1
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job1 succeeded"
+
+  job3:
+    needs: job1
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job1 failed"
+
+  job4:
+    needs: job1
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Always executed"
